@@ -17,37 +17,80 @@
     <p>Sua comida em 6 minutos</p>
 </header>
 
+<div class="filtro escondido">
+</div>
+
+<div class="concluirCompra escondido">
+    <h1>Confirme seu pedido</h1>
+    <div class="pedidoDetalhadp">
+        <div class="itemComprado">
+            <p>Frango Yin Yang</p>
+            <p>14,90</p>
+        </div>
+        <div class="itemComprado">
+            <p>Coquinha gelada</p>
+            <p>4,90</p>
+        </div>
+        <div class="itemComprado">
+            <p>Pudim</p>
+            <p>7,90</p>
+        </div>
+        <div class="total">
+            <p>Total</p>
+            <p>R$ 27,70</p>
+        </div>
+    </div>
+    <div class="botaoConcluir">
+        <p>Tudo certo, pode pedir!</p>
+    </div>
+    <div class="botaoCancelar" onclick="cancelarPedido()"> Cancelar</div>
+</div>
+
+
 <div class="container">
 
     <div class="CategoriaItem">
         <h1>Primeiro, seu prato</h1>
         <div class="menu">
-            <div class="caixaproduto">
+            <div class="caixaproduto" onclick="selecionarPrato(this)">
                 <img src="/Imagens/Frango.svg">
                 <h2> Frango Yin Yang</h2>
                 <p>Um pouco de batata, um pouco de salada</p>
-                <h3>R$ 14,90</h3>
+                <div class="preco-produto">
+                    <h3>R$ 14,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
 
-            <div class="caixaproduto">
+            <div class="caixaproduto" onclick="selecionarPrato(this)">
                 <img src="/Imagens/Frango.svg">
                 <h2> Frango Yin Yang</h2>
                 <p>Um pouco de batata, um pouco de salada</p>
-                <h3>R$ 14,90</h3>
+                <div class="preco-produto">
+                    <h3>R$ 14,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
+                
             </div>
 
-            <div class="caixaproduto">
+            <div class="caixaproduto" onclick="selecionarPrato(this)">
                 <img src="/Imagens/Frango.svg">
                 <h2> Frango Yin Yang</h2>
                 <p>Um pouco de batata, um pouco de salada</p>
-                <h3>R$ 14,90</h3>
+                <div class="preco-produto">
+                    <h3>R$ 14,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
-            
-            <div class="caixaproduto">
+             
+            <div class="caixaproduto" onclick="selecionarPrato(this)">
                 <img src="/Imagens/Frango.svg">
                 <h2> Frango Yin Yang</h2>
                 <p>Um pouco de batata, um pouco de salada</p>
-                <h3>R$ 14,90</h3>
+                <div class="preco-produto">
+                    <h3>R$ 14,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
 
 
@@ -58,31 +101,43 @@
     <div class="CategoriaItem">
         <h1>Agora, sua bebida</h1>
         <div class="menu">
-            <div class="caixaproduto">
+            <div class="caixaproduto" onclick="selecionarBebida(this)">
                 <img src="/Imagens/Coquinha.svg">
                 <h2> Coquinha Gelada</h2>
                 <p>Lata 350ml</p>
-                <h3>R$ 4,90</h3>
+                <div class="preco-produto">
+                    <h3>R$ 4,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
 
-            <div class="caixaproduto">
+            <div class="caixaproduto"  onclick="selecionarBebida(this)">
                 <img src="/Imagens/Coquinha.svg">
                 <h2> Coquinha Gelada</h2>
                 <p>Lata 350ml</p>
-                <h3>R$ 4,90</h3>
+                <div class="preco-produto">
+                    <h3>R$ 4,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
 
-            <div class="caixaproduto">
+            <div class="caixaproduto"  onclick="selecionarBebida(this)">
                 <img src="/Imagens/Coquinha.svg">
                 <h2> Coquinha Gelada</h2>
                 <p>Lata 350ml</p>
-                <h3>R$ 4,90</h3>
+                 <div class="preco-produto">
+                    <h3>R$ 4,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
-            <div class="caixaproduto">
+            <div class="caixaproduto"  onclick="selecionarBebida(this)">
                 <img src="/Imagens/Coquinha.svg">
                 <h2> Coquinha Gelada</h2>
                 <p>Lata 350ml</p>
-                <h3>R$ 4,90</h3>
+                 <div class="preco-produto">
+                    <h3>R$ 4,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
 
         </div>
@@ -90,31 +145,43 @@
     <div class="CategoriaItem">
         <h1>Por fim, sua sobremesa</h1>
         <div class="menu">
-            <div class="caixaproduto">
+            <div class="caixaproduto" onclick="selecionarSobremesa(this)">
                 <img src="/Imagens/Pudim.svg">
                 <h2> Pudim</h2>
                 <p>Apenas pudim</p>
-                <h3>R$ 7,90</h3>
+                <div class="preco-produto">
+                    <h3>R$ 7,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
 
-            <div class="caixaproduto">
+            <div class="caixaproduto" onclick="selecionarSobremesa(this)">
                 <img src="/Imagens/Pudim.svg">
                 <h2> Pudim</h2>
                 <p>Apenas pudim</p>
-                <h3>R$ 7,90</h3>
+                 <div class="preco-produto">
+                    <h3>R$ 7,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
             
-            <div class="caixaproduto">
+            <div class="caixaproduto" onclick="selecionarSobremesa(this)">
                 <img src="/Imagens/Pudim.svg">
-                <h2> Pudim</h2>
+                <h2>Pudim</h2>
                 <p>Apenas pudim</p>
-                <h3>R$ 7,90</h3>
+                 <div class="preco-produto">
+                    <h3>R$ 7,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
-            <div class="caixaproduto">
+            <div class="caixaproduto" onclick="selecionarSobremesa(this)">
                 <img src="/Imagens/Pudim.svg">
                 <h2> Pudim</h2>
                 <p>Apenas pudim</p>
-                <h3>R$ 7,90</h3>
+                 <div class="preco-produto">
+                    <h3>R$ 7,90</h3>
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                </div>
             </div>
         </div>
     </div>
@@ -127,6 +194,12 @@
         <p>Selecione os 3 itens</p> 
         <p>para fechar o pedido</p>   
     </div>
+    <div class="fecharPedido escondido" onclick="fecharPedido()">
+        <p>Fechar pedido</p>    
+    </div>
+
 </footer>
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

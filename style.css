@@ -47,16 +47,18 @@ header p{
 
 .caixaproduto{
     margin-top: 17px;
-    width: 172px;
+    width: 175px;
     height: 215px;
     background-color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
-    padding: 18px 15px 14px 15px;
+    padding: 14px;
     margin-left: 18px;
+    border: solid 4px;
+    border-color: #FFFFFF;
     border-radius: 10px;
 }
 .caixaproduto img{
- width: 144px;
+ width: 140px;
  height: 87px;
  border-radius: 4px; 
  margin-bottom: 8px;   
@@ -71,15 +73,25 @@ header p{
    font-size: 15px;
    color: #a6a6a6;
    margin: 8px 0;
+   height: 30px;
+   
 }
 .caixaproduto h3{
    font-weight: 400;
    font-size: 16px;
    color: #000000;
 }
-
-
-
+.caixaproduto ion-icon{
+    display:none;
+    color: #32B72F;
+    width: 19px;
+    height: 19px;
+}
+.preco-produto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 footer{
     height: 92px;
@@ -103,5 +115,108 @@ footer{
     border-radius: 50px;
     font-family: 'Roboto', sans-serif;
 }
+.fecharPedido{
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 700;
+    height: 100%;
+    background-color: #32B72F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    font-family: 'Roboto', sans-serif;
+}
+.escondido{
+    display:none    
+}
+
+.prato-selecionado{
+    border: solid 4px;
+    border-color: #32B72F;
+    border-radius: 10px;  
+}
+.prato-selecionado ion-icon{
+    display: inline;
+}
+
+.sobremesa-selecionado{
+    border: solid 4px;
+    border-color: #32B72F;
+    border-radius: 10px;  
+}
+.sobremesa-selecionado ion-icon{
+    display: inline;
+}
+
+.bebida-selecionado{
+    border: solid 4px;
+    border-color: #32B72F;
+    border-radius: 10px;  
+}
+.bebida-selecionado ion-icon{
+    display: inline;
+}
 
 
+.concluirCompra{
+    width: 380px;
+    height: 350px;
+    background-color: #50D074;
+    color: #FFFFFF;
+    z-index: 2;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 25px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.concluirCompra h1{
+    margin-bottom:  26px;
+}
+
+.itemComprado{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    font-weight: 400;
+
+}
+.total{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.botaoConcluir{
+    background-color: #FFFFFF;
+    color: #50D074;
+    border-radius: 100px;
+    width: 330px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    margin-top: 22px;  
+}
+.botaoCancelar{
+    margin-top: 20px;
+}
+
+
+
+.filtro{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter:opacity(70%);
+    background-color: #FFFFFF;
+}
