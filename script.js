@@ -1,26 +1,10 @@
-//Funções borda verde de seleção
-function selecionarPrato(selecionado){
-    if (document.querySelector(".prato-selecionado") != null) {
-        document.querySelector(".prato-selecionado").classList.remove("prato-selecionado");
+//Função adicionar borda verde de acordo com o tipo selecionado
+function selecionarPedido(selecionado, tipo){
+    if (document.querySelector(`.${tipo}-selecionado`) != null) {
+        document.querySelector(`.${tipo}-selecionado`).classList.remove(`${tipo}-selecionado`);
+    
     }
-   selecionado.classList.add("prato-selecionado");
-   exibirBotaoEncerramento ()
-}
-
-function selecionarBebida(selecionado){
-    if (document.querySelector(".bebida-selecionado") != null) {
-        document.querySelector(".bebida-selecionado").classList.remove("bebida-selecionado");
-    }
-   selecionado.classList.add("bebida-selecionado");
-   exibirBotaoEncerramento ()
-}
-function selecionarSobremesa(selecionado){
-    if (document.querySelector(".sobremesa-selecionado") != null) {
-        document.querySelector(".sobremesa-selecionado").classList.remove("sobremesa-selecionado");
-    }
-   selecionado.classList.add("sobremesa-selecionado");
-
-   exibirBotaoEncerramento ()
+   selecionado.classList.add(`${tipo}-selecionado`);
 }
 
 //Função exibir o botão fechar pedido verde
@@ -29,8 +13,21 @@ function exibirBotaoEncerramento (){
         document.querySelector(".botaopedido").classList.add("escondido") 
         document.querySelector(".fecharPedido").classList.remove("escondido") 
     }
-    }
+}
 
+//funções referente a cada tipo do menu
+function selecionarPrato(selecionado){
+    selecionarPedido (selecionado, "prato")
+    exibirBotaoEncerramento ()
+}
+function selecionarBebida(selecionado){
+    selecionarPedido (selecionado, "bebida")
+    exibirBotaoEncerramento ()
+}
+function selecionarSobremesa(selecionado){
+    selecionarPedido (selecionado, "sobremesa")
+    exibirBotaoEncerramento ()
+}
 
 //Função aparecer tela de encerrar pedido
 function fecharPedido (){
@@ -45,65 +42,36 @@ function cancelarPedido(){
     document.querySelector(".concluirCompra").classList.add("escondido") 
 }
 
-
-
-
-
 //Impressão do pedido na tela
 function imprimirPedido(){
-    let elementoPrato = document.querySelector(".prato-selecionado h3").innerText
-    let precoPrato = elementoPrato;
-    elementoPrato = document.querySelector(".prato-selecionado h2").innerText   
-    let nomePrato = elementoPrato
-    elementoPrato = document.querySelector(".pratoFim p:nth-child(1)")
-    elementoPrato.innerHTML = nomePrato
-    elementoPrato = document.querySelector(".pratoFim p:nth-child(2)")
-    elementoPrato.innerHTML= precoPrato
+    //Prato
+    const tipoPedido = ["prato" , "bebida", "sobremesa"] 
+    let precoTotal = 0
+    for (const pedido of tipoPedido){
+        const precoPrato =  document.querySelector(`.${pedido}-selecionado h3`).innerText
+        const nomePrato =  document.querySelector(`.${pedido}-selecionado h2`).innerText 
+        document.querySelector(`.${pedido}Fim p:nth-child(1)`).innerHTML = nomePrato
+        document.querySelector(`.${pedido}Fim p:nth-child(2)`).innerHTML= precoPrato
+        precoTotal += convertTextPrice(precoPrato)
+    }
 
-    let elementobebida = document.querySelector(".bebida-selecionado h3").innerText
-    let precobebida = elementobebida;
-    elementobebida = document.querySelector(".bebida-selecionado h2").innerText   
-    let nomebebida = elementobebida
-    elementobebida = document.querySelector(".bebidaFim p:nth-child(1)")
-    elementobebida.innerHTML = nomebebida
-    elementobebida = document.querySelector(".bebidaFim p:nth-child(2)")
-    elementobebida.innerHTML= precobebida
-
-    let elementosobremesa = document.querySelector(".sobremesa-selecionado h3").innerText
-    let precosobremesa = elementosobremesa;
-    elementosobremesa = document.querySelector(".sobremesa-selecionado h2").innerText   
-    let nomesobremesa = elementosobremesa
-    elementosobremesa = document.querySelector(".sobremesaFim p:nth-child(1)")
-    elementosobremesa.innerHTML = nomesobremesa
-    elementosobremesa = document.querySelector(".sobremesaFim p:nth-child(2)")
-    elementosobremesa.innerHTML= precosobremesa
-
-    let precoTotal = textoPedidoFinal(precoPrato, precobebida, precosobremesa)
-
-    let elementoTotal = document.querySelector(".total p:nth-child(2)")
-    precoTotal = "R$ " + precoTotal.toString()
-    precoTotal = precoTotal.replace(".",",")
-    elementoTotal.innerHTML = precoTotal
+    precoTotal = "R$ " + precoTotal.toFixed(2).replace(".",",")
+    document.querySelector(".total p:nth-child(2)").innerHTML = precoTotal
     return precoTotal
 }
 
-//Calcular preço total ajustando casas decimais
-function textoPedidoFinal (preco1, preco2, preco3){
-    
-    preco1 = parseFloat(preco1.replace(",","."));
-    preco2 = parseFloat(preco2.replace(",","."));
-    preco3 = parseFloat(preco3.replace(",","."));
-    let precoTotal = preco1 + preco2 + preco3 
-    precoTotal = Number(precoTotal).toFixed(2)
-    return precoTotal
+//converter texto para preço
+function convertTextPrice (text){
+    return parseFloat(text.replace(",","."))
 }
 
-function botãoWhatsapp (){ 
+
+function botaoWhatsapp (){ 
     let mensagem =`Olá, gostaria de fazer o pedido:
 - Prato: ${document.querySelector(".prato-selecionado h2").innerText}
 - Bebida: ${document.querySelector(".bebida-selecionado h2").innerText}
-- Sobremesa: Pudim ${document.querySelector(".sobremesa-selecionado h2").innerText}
-Total: ${imprimirPedido()}
+- Sobremesa: ${document.querySelector(".sobremesa-selecionado h2").innerText}
+Total: ${document.querySelector(".total p:nth-child(2)").innerText}
     
 Nome: ${prompt('Digite seu nome')}
 Endereço: ${prompt('Digite seu endereço')}`
