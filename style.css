@@ -16,6 +16,7 @@ header{
     left: 0;
     top: 0;
     height: 92px;
+    z-index: 1;
 }
 header h1{
     font-size: 44px;
