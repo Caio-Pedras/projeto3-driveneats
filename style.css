@@ -171,7 +171,7 @@ footer{
     height: 350px;
     background-color: #50D074;
     color: #FFFFFF;
-    z-index: 2;
+    z-index: 1;
     position: fixed;
     left: 50%;
     top: 50%;
